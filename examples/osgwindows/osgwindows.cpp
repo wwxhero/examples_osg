@@ -50,7 +50,7 @@ int main( int argc, char **argv )
     // left window + left slave camera
     {
         osg::ref_ptr<osg::GraphicsContext::Traits> traits = new osg::GraphicsContext::Traits;
-
+        traits->glContextVersion = "3.3";
         traits->x = xoffset + 0;
         traits->y = yoffset + 0;
         traits->width = 600;
@@ -77,6 +77,7 @@ int main( int argc, char **argv )
     // right window + right slave camera
     {
         osg::ref_ptr<osg::GraphicsContext::Traits> traits = new osg::GraphicsContext::Traits;
+        traits->glContextVersion = "3.3";
         traits->x = xoffset + 600;
         traits->y = yoffset + 0;
         traits->width = 600;
@@ -98,6 +99,12 @@ int main( int argc, char **argv )
 
         // add this slave camera to the viewer, with a shift right of the projection matrix
         viewer.addSlave(camera.get(), osg::Matrixd::translate(-1.0,0.0,0.0), osg::Matrixd());
+
+		unsigned int major, minor;
+		if (traits->getContextVersion(major, minor))
+			std::cout << "GL version " << major << "." << minor << std::endl;
+		else
+			std::cout << "failed to get GL version!!!" << std::endl;
     }
 
 
