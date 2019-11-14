@@ -64,13 +64,13 @@ packaging/cmake/*
 configure/*
 
 # Platform Specifics - auto generated files
-PlatformSpecifics/Windows/*.rc
+#PlatformSpecifics/Windows/*.rc
 
 # Visual studio - project files
-*.sln
-*.suo
-*.vcxproj
-*.vcxproj.filters
+#*.sln
+#*.suo
+#*.vcxproj
+#*.vcxproj.filters
 *.vcxproj.user
 
 # Visual Studio - Build Results
